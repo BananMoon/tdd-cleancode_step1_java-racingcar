@@ -11,7 +11,7 @@ class CarTest {
     void move_car_when_reference_is_between_4_and_9() {
         Car car = new Car("moon");
 
-        car.move();
+        car.move(() -> true);
 
         assertThat(car.getPosition()).isEqualTo(new Position(1));
     }
@@ -30,7 +30,7 @@ class CarTest {
         Car car = new Car("moon");
 
         Car deepCopiedCar = car.deepCopy();
-        car.move();
+        car.move(() -> true);
 
         assertThat(car).isNotEqualTo(deepCopiedCar)
                 .isNotSameAs(deepCopiedCar);

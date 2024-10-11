@@ -1,6 +1,6 @@
 package carracing.domain.carracing;
 
-import carracing.domain.carracing.dto.MoveStrategy;
+import carracing.domain.carracing.strategy.MoveStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class Cars {
 
     public void move(MoveStrategy moveStrategy) {
         for (Car car : this.cars) {
-            moveStrategy.move(car);
+            car.move(moveStrategy);
         }
     }
 

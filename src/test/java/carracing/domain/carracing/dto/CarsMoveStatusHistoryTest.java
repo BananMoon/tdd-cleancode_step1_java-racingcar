@@ -30,13 +30,13 @@ class CarsMoveStatusHistoryTest {
 
     @DisplayName("인자로 전달하는 이동시도 횟수 단계에 해당하는 Cars 객체를 반환한다.")
     @Test
-    void carsBy() {
+    void return_Cars_by_moveTryStep() {
         Car moon = new Car("moon");
         Car zi = new Car("zi");
         Cars cars = new Cars(List.of(moon, zi));
         CarsMoveStatusHistory carsMoveStatusHistory = new CarsMoveStatusHistory();
         carsMoveStatusHistory.save(cars);
-        moon.move();
+        moon.move(() -> true);
         carsMoveStatusHistory.save(cars);
 
         Cars carsByFirstMoveTry = carsMoveStatusHistory.carsBy(0);

@@ -1,6 +1,4 @@
-package carracing.domain.carracing.dto;
-
-import carracing.domain.carracing.Car;
+package carracing.domain.carracing.strategy;
 
 import java.util.Random;
 
@@ -9,10 +7,9 @@ public class RandomNumberMoveStrategy implements MoveStrategy {
     private static final int MOVE_REFERENCE_NUM = 4;
     private static final int LIMIT_RANDOM_NUM = 10;
 
+
     @Override
-    public void move(Car car) {
-        if (RANDOM.nextInt(LIMIT_RANDOM_NUM) >= MOVE_REFERENCE_NUM) {
-            car.move();
-        }
+    public boolean isMovable() {
+        return RANDOM.nextInt(LIMIT_RANDOM_NUM) >= MOVE_REFERENCE_NUM;
     }
 }

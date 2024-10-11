@@ -1,5 +1,7 @@
 package carracing.domain.carracing;
 
+import carracing.domain.carracing.strategy.MoveStrategy;
+
 import java.util.Objects;
 
 public class Car {
@@ -19,8 +21,10 @@ public class Car {
         this.position = position;
     }
 
-    public void move() {
-        this.position = this.position.increase();
+    public void move(MoveStrategy moveStrategy) {
+        if (moveStrategy.isMovable()) {
+            this.position = this.position.increase();
+        }
     }
 
     public int compareMax(int max) {

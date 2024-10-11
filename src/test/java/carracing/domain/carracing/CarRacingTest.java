@@ -1,7 +1,7 @@
 package carracing.domain.carracing;
 
 import carracing.domain.carracing.dto.CarsMoveStatusHistory;
-import carracing.domain.carracing.dto.RandomNumberMoveStrategy;
+import carracing.domain.carracing.strategy.RandomNumberMoveStrategy;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,12 +24,7 @@ class CarRacingTest {
     @DisplayName("자동차 경주는 이동 시도 횟수만큼 실행된다.")
     @Test
     void start_carRacing() {
-        CarRacing carRacing = new CarRacing(new String[]{"moon", "zi"}, 3, new RandomNumberMoveStrategy() {
-            @Override
-            public void move(Car car) {
-                car.move();
-            }
-        });
+        CarRacing carRacing = new CarRacing(new String[]{"moon", "zi"}, 3, () -> true);
         carRacing.start();
 
         assertThat(carRacing).extracting("cars")
