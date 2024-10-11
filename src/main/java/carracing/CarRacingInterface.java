@@ -1,7 +1,7 @@
 package carracing;
 
 import carracing.domain.carracing.CarRacing;
-import carracing.domain.carracing.dto.RandomNumberMoveStrategy;
+import carracing.domain.carracing.strategy.RandomNumberMoveStrategy;
 import carracing.view.InputView;
 import carracing.view.ResultView;
 
